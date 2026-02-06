@@ -193,6 +193,20 @@
         .btn-shine:hover::after {
             left: 100%;
         }
+
+        /* Modern Card Effects */
+        .modern-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modern-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #FFD700;
+        }
     </style>
 </head>
 
@@ -283,67 +297,128 @@
         </div>
     </section>
 
-    <!-- ========== INFO CARDS ========== -->
-    <section class="py-20 bg-gray-50 -mt-10 relative z-20 rounded-t-[3rem]">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900">Thông tin cần biết</h2>
-                <div class="w-16 h-1 bg-cand-gold mx-auto mt-2 rounded-full"></div>
-                <p class="text-gray-600 mt-4 text-sm">Trích dẫn từ Nghị định 282/2025/NĐ-CP và Quyết định 3518/QĐ-UBND
-                </p>
+    <!-- ========== DOCUMENTS SECTION ========== -->
+    <main id="main-content">
+        <section id="documents" class="py-20 bg-gray-50 -mt-10 relative z-20 rounded-t-[3rem]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-5xl font-bold text-golf-green mb-4 drop-shadow-sm font-playfair">
+                        Kho Văn Bản Pháp Luật</h3>
+                    <div class="w-24 h-1 bg-cand-gold mx-auto rounded-full"></div>
+                    <p class="text-gray-600 mt-4 text-sm">Các văn bản pháp luật liên quan đến an ninh sân Golf và quản
+                        lý người nước ngoài</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Card 1: Luật Phòng Không Nhân dân (NEW) -->
+                    <div class="modern-card rounded-2xl p-6 relative group">
+                        <div
+                            class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-t-2xl">
+                        </div>
+                        <div
+                            class="w-14 h-14 bg-blue-50 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                            <i data-lucide="plane" class="w-7 h-7 text-blue-600 group-hover:text-white"></i>
+                        </div>
+                        <span
+                            class="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-full mb-3 border border-blue-200">LUẬT</span>
+                        <h4 id="doc1-title"
+                            class="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors leading-tight">
+                            Luật Phòng Không Nhân dân</h4>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">Quy định về quản lý tàu bay không người lái
+                            (Flycam/UAV) và vùng trời quốc gia.</p>
+                        <div class="flex gap-2 mt-auto">
+                            <button onclick="showLaw('flycam')"
+                                class="flex-1 py-2 border border-blue-600 text-blue-600 rounded-lg font-semibold text-sm hover:bg-blue-600 hover:text-white transition-all">Xem
+                                nhanh</button>
+                            <a href="Luật Phòng Không Nhân dân.pdf" target="_blank" rel="noopener noreferrer"
+                                class="flex-1 py-2 bg-blue-600 text-white rounded-lg font-semibold text-center text-sm hover:bg-blue-700 hover:shadow-lg transition-all">Mở
+                                file</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Nghị định 282/2025/NĐ-CP -->
+                    <div class="modern-card rounded-2xl p-6 relative group">
+                        <div
+                            class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-cand-red to-cand-gold rounded-t-2xl">
+                        </div>
+                        <div
+                            class="w-14 h-14 bg-red-50 rounded-full flex items-center justify-center mb-4 group-hover:bg-cand-red group-hover:text-white transition-colors duration-300">
+                            <i data-lucide="gavel" class="w-7 h-7 text-cand-red group-hover:text-white"></i>
+                        </div>
+                        <span
+                            class="inline-block px-3 py-1 bg-red-50 text-cand-red text-xs font-bold rounded-full mb-3 border border-red-200">NGHỊ
+                            ĐỊNH</span>
+                        <h4 id="doc2-title"
+                            class="text-lg font-bold text-gray-900 mb-2 group-hover:text-cand-red transition-colors leading-tight">
+                            Nghị định 282/2025/NĐ-CP</h4>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">Quy định xử phạt vi phạm hành chính trong
+                            lĩnh vực an ninh, trật tự.</p>
+                        <div class="flex gap-2 mt-auto">
+                            <button onclick="showLaw('visa')"
+                                class="flex-1 py-2 border border-cand-red text-cand-red rounded-lg font-semibold text-sm hover:bg-cand-red hover:text-white transition-all">Xem
+                                nhanh</button>
+                            <a href="2025_1583_1584_282_2025_ND_CP.pdf" target="_blank" rel="noopener noreferrer"
+                                class="flex-1 py-2 bg-cand-red text-white rounded-lg font-semibold text-center text-sm hover:bg-red-800 hover:shadow-lg transition-all">Mở
+                                file</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Luật Xuất nhập cảnh -->
+                    <div class="modern-card rounded-2xl p-6 relative group">
+                        <div
+                            class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-600 to-emerald-500 rounded-t-2xl">
+                        </div>
+                        <div
+                            class="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mb-4 group-hover:bg-green-600 group-hover:text-white transition-colors duration-300">
+                            <i data-lucide="book-open" class="w-7 h-7 text-green-600 group-hover:text-white"></i>
+                        </div>
+                        <span
+                            class="inline-block px-3 py-1 bg-green-50 text-green-700 text-xs font-bold rounded-full mb-3 border border-green-200">LUẬT</span>
+                        <h4 id="doc3-title"
+                            class="text-lg font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors leading-tight">
+                            Luật Xuất nhập cảnh (VBHN)</h4>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">Văn bản hợp nhất về nhập cảnh, xuất cảnh, cư
+                            trú của người nước ngoài tại Việt Nam.</p>
+                        <div class="flex gap-2 mt-auto">
+                            <button onclick="showLaw('visa')"
+                                class="flex-1 py-2 border border-green-600 text-green-600 rounded-lg font-semibold text-sm hover:bg-green-600 hover:text-white transition-all">Xem
+                                nhanh</button>
+                            <a href="2023_1257_1258_30_VBHN_VPQH.pdf" target="_blank" rel="noopener noreferrer"
+                                class="flex-1 py-2 bg-green-600 text-white rounded-lg font-semibold text-center text-sm hover:bg-green-700 hover:shadow-lg transition-all">Mở
+                                file</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Quy chế phối hợp -->
+                    <div class="modern-card rounded-2xl p-6 relative group">
+                        <div
+                            class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-500 to-orange-500 rounded-t-2xl">
+                        </div>
+                        <div
+                            class="w-14 h-14 bg-amber-50 rounded-full flex items-center justify-center mb-4 group-hover:bg-amber-500 group-hover:text-white transition-colors duration-300">
+                            <i data-lucide="landmark" class="w-7 h-7 text-amber-600 group-hover:text-white"></i>
+                        </div>
+                        <span
+                            class="inline-block px-3 py-1 bg-amber-50 text-amber-700 text-xs font-bold rounded-full mb-3 border border-amber-200">QUY
+                            CHẾ</span>
+                        <h4 id="doc4-title"
+                            class="text-lg font-bold text-gray-900 mb-2 group-hover:text-amber-600 transition-colors leading-tight">
+                            Quy chế Phối hợp Quản lý NNN</h4>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">Quy định về phối hợp quản lý người nước ngoài
+                            trên địa bàn tỉnh Phú Thọ.</p>
+                        <div class="flex gap-2 mt-auto">
+                            <button onclick="showLaw('law')"
+                                class="flex-1 py-2 border border-amber-500 text-amber-600 rounded-lg font-semibold text-sm hover:bg-amber-500 hover:text-white transition-all">Xem
+                                nhanh</button>
+                            <a href="Quy_che_phoi_hop_quan_ly_NNN_Phu_Tho.pdf" target="_blank" rel="noopener noreferrer"
+                                class="flex-1 py-2 bg-amber-500 text-white rounded-lg font-semibold text-center text-sm hover:bg-amber-600 hover:shadow-lg transition-all">Mở
+                                file</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Card 1: Flycam -->
-                <div class="glass-panel p-8 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all bg-white group cursor-pointer"
-                    onclick="showLaw('flycam')">
-                    <div
-                        class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        <i data-lucide="camera" class="w-7 h-7"></i>
-                    </div>
-                    <h3 class="font-bold text-xl mb-3 text-gray-900">Quy định Flycam</h3>
-                    <p class="text-sm text-gray-600 mb-6 leading-relaxed">Khu vực cấm bay (No-fly Zone) và thủ tục xin
-                        cấp phép bay tại Phú Thọ để tránh bị phạt.</p>
-                    <span
-                        class="text-blue-600 text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all">
-                        Xem chi tiết <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </span>
-                </div>
-
-                <!-- Card 2: Visa/Residence -->
-                <div class="glass-panel p-8 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all bg-white group cursor-pointer"
-                    onclick="showLaw('visa')">
-                    <div
-                        class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center mb-6 text-green-600 group-hover:bg-green-600 group-hover:text-white transition-colors">
-                        <i data-lucide="passport" class="w-7 h-7"></i>
-                    </div>
-                    <h3 class="font-bold text-xl mb-3 text-gray-900">Visa & Cư trú</h3>
-                    <p class="text-sm text-gray-600 mb-6 leading-relaxed">Hướng dẫn khai báo tạm trú online và các thủ
-                        tục gia hạn thị thực cho người nước ngoài.</p>
-                    <span
-                        class="text-green-600 text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all">
-                        Xem chi tiết <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </span>
-                </div>
-
-                <!-- Card 3: Gambling Warning -->
-                <div class="glass-panel p-8 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all bg-white group cursor-pointer"
-                    onclick="showLaw('law')">
-                    <div
-                        class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center mb-6 text-cand-red group-hover:bg-cand-red group-hover:text-white transition-colors">
-                        <i data-lucide="gavel" class="w-7 h-7"></i>
-                    </div>
-                    <h3 class="font-bold text-xl mb-3 text-gray-900">Cảnh báo Pháp luật</h3>
-                    <p class="text-sm text-gray-600 mb-6 leading-relaxed">Nghiêm cấm đánh bạc, cá cược dưới mọi hình
-                        thức. Các hành vi vi phạm sẽ bị trục xuất.</p>
-                    <span
-                        class="text-cand-red text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all">
-                        Xem chi tiết <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- ========== AI SECTION ========== -->
     <section id="ai-section" class="py-20 bg-white border-t border-gray-100 relative overflow-hidden">
