@@ -57,157 +57,7 @@
         }
     </script>
 
-    <style>
-        * {
-            font-family: 'Inter', sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Golf Texture Background */
-        .golf-bg {
-            background-color: #1a472a;
-            background-image: radial-gradient(#2d6a4f 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        /* Animations */
-        @keyframes pulse-ring {
-            0% {
-                transform: scale(0.8);
-                box-shadow: 0 0 0 0 rgba(208, 0, 0, 0.7);
-            }
-
-            70% {
-                transform: scale(1);
-                box-shadow: 0 0 0 10px rgba(208, 0, 0, 0);
-            }
-
-            100% {
-                transform: scale(0.8);
-                box-shadow: 0 0 0 0 rgba(208, 0, 0, 0);
-            }
-        }
-
-        .sos-pulse {
-            animation: pulse-ring 2s infinite;
-        }
-
-        /* Language Button Active State */
-        .lang-btn.active {
-            background-color: rgba(255, 255, 255, 0.2);
-            opacity: 1;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-        }
-
-        .lang-btn {
-            opacity: 0.5;
-            transition: all 0.2s ease;
-        }
-
-        .lang-btn:hover {
-            opacity: 1;
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: scale(1.1);
-        }
-
-        /* Custom Scrollbar for Modals */
-        .modal-scroll::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .modal-scroll::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        .modal-scroll::-webkit-scrollbar-thumb {
-            background: #1a472a;
-            border-radius: 3px;
-        }
-
-        /* Chat Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-fade-in-up {
-            animation: fadeInUp 0.3s ease-out forwards;
-        }
-
-        .delay-100 {
-            animation-delay: 0.1s;
-        }
-
-        /* Custom Scrollbar for Chat */
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 3px;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 3px;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-        }
-
-        /* Button Shine */
-        .btn-shine {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-shine::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: 0.5s;
-        }
-
-        .btn-shine:hover::after {
-            left: 100%;
-        }
-
-        /* Modern Card Effects */
-        .modern-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .modern-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            border-color: #FFD700;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="bg-gray-50 text-gray-800">
@@ -221,8 +71,9 @@
                     onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/e/e0/Cong_an_hieu_Viet_Nam.svg'"
                     alt="Logo" class="w-10 h-10 object-contain drop-shadow-md">
                 <div class="hidden sm:block">
-                    <h1 class="font-bold text-sm leading-none">CÔNG AN TỈNH PHÚ THỌ</h1>
-                    <p class="text-cand-gold text-[10px] font-bold tracking-wider">PHÒNG AN NINH ĐỐI NGOẠI (PA01)</p>
+                    <h1 class="font-bold text-sm leading-none" data-i18n="dept_name">CÔNG AN TỈNH PHÚ THỌ</h1>
+                    <p class="text-cand-gold text-[10px] font-bold tracking-wider" data-i18n="sub_dept">PHÒNG AN NINH
+                        ĐỐI NGOẠI (PA01)</p>
                 </div>
                 <!-- Mobile Only Title -->
                 <div class="sm:hidden">
@@ -249,11 +100,7 @@
                 </div>
 
                 <!-- SOS Button -->
-                <a href="tel:113"
-                    class="bg-cand-red hover:bg-red-700 text-white px-3 py-2 rounded-full font-bold text-xs flex items-center gap-1.5 shadow-lg sos-pulse transition-transform active:scale-95 border border-white/20">
-                    <i data-lucide="phone" class="w-4 h-4 fill-current"></i>
-                    <span class="hidden md:inline">SOS</span> 113
-                </a>
+
             </div>
         </div>
     </header>
@@ -267,18 +114,20 @@
 
         <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
             <span
-                class="inline-block px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-cand-gold border border-cand-gold/30 text-xs font-bold mb-6 uppercase tracking-widest shadow-sm">
+                class="inline-block px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-cand-gold border border-cand-gold/30 text-xs font-bold mb-6 uppercase tracking-widest shadow-sm"
+                data-i18n="hero_tag">
                 Mô hình "Sân Golf An Toàn"
             </span>
 
             <h1 class="text-4xl md:text-7xl font-black text-white mb-6 leading-tight font-playfair drop-shadow-lg">
-                GOLF AN TOÀN <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cand-gold to-yellow-200">ĐÚNG PHÁP
+                <span data-i18n="hero_title_1">GOLF AN TOÀN</span> <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cand-gold to-yellow-200"
+                    data-i18n="hero_title_2">ĐÚNG PHÁP
                     LUẬT</span>
             </h1>
 
-            <p
-                class="text-gray-100 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-md">
+            <p class="text-gray-100 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-md"
+                data-i18n="hero_desc">
                 Cẩm nang pháp luật & Hỗ trợ an ninh dành cho người nước ngoài đang làm việc và du lịch tại Phú Thọ.
             </p>
 
@@ -286,12 +135,12 @@
                 <button onclick="document.getElementById('ai-section').scrollIntoView()"
                     class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-cand-gold to-yellow-500 text-golf-green font-bold rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all flex items-center justify-center gap-2 text-lg">
                     <i data-lucide="bot" class="w-6 h-6"></i>
-                    Hỏi đáp Luật (AI)
+                    <span data-i18n="btn_ai">Hỏi đáp Luật (AI)</span>
                 </button>
                 <button onclick="openReportModal()"
                     class="w-full sm:w-auto px-8 py-4 bg-white/10 backdrop-blur-md text-white border border-white/30 font-bold rounded-full hover:bg-white/20 transition-all flex items-center justify-center gap-2 text-lg">
                     <i data-lucide="alert-triangle" class="w-6 h-6 text-cand-red"></i>
-                    Phản ánh ANTT
+                    <span data-i18n="btn_report">Phản ánh ANTT</span>
                 </button>
             </div>
         </div>
@@ -302,10 +151,12 @@
         <section id="documents" class="py-20 bg-gray-50 -mt-10 relative z-20 rounded-t-[3rem]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h3 class="text-3xl md:text-5xl font-bold text-golf-green mb-4 drop-shadow-sm font-playfair">
+                    <h3 class="text-3xl md:text-5xl font-bold text-golf-green mb-4 drop-shadow-sm font-playfair"
+                        data-i18n="doc_section_title">
                         Kho Văn Bản Pháp Luật</h3>
                     <div class="w-24 h-1 bg-cand-gold mx-auto rounded-full"></div>
-                    <p class="text-gray-600 mt-4 text-sm">Các văn bản pháp luật liên quan đến an ninh sân Golf và quản
+                    <p class="text-gray-600 mt-4 text-sm" data-i18n="doc_section_desc">Các văn bản pháp luật liên quan
+                        đến an ninh sân Golf và quản
                         lý người nước ngoài</p>
                 </div>
 
@@ -320,18 +171,23 @@
                             <i data-lucide="plane" class="w-7 h-7 text-blue-600 group-hover:text-white"></i>
                         </div>
                         <span
-                            class="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-full mb-3 border border-blue-200">LUẬT</span>
+                            class="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-full mb-3 border border-blue-200"
+                            data-i18n="doc_type_law">LUẬT</span>
                         <h4 id="doc1-title"
-                            class="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors leading-tight">
+                            class="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors leading-tight"
+                            data-i18n="doc_1_title">
                             Luật Phòng Không Nhân dân</h4>
-                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">Quy định về quản lý tàu bay không người lái
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3" data-i18n="doc_1_desc">Quy định về quản lý
+                            tàu bay không người lái
                             (Flycam/UAV) và vùng trời quốc gia.</p>
                         <div class="flex gap-2 mt-auto">
                             <button onclick="showLaw('flycam')"
-                                class="flex-1 py-2 border border-blue-600 text-blue-600 rounded-lg font-semibold text-sm hover:bg-blue-600 hover:text-white transition-all">Xem
+                                class="flex-1 py-2 border border-blue-600 text-blue-600 rounded-lg font-semibold text-sm hover:bg-blue-600 hover:text-white transition-all"
+                                data-i18n="btn_quick_view">Xem
                                 nhanh</button>
                             <a href="Luật Phòng Không Nhân dân.pdf" target="_blank" rel="noopener noreferrer"
-                                class="flex-1 py-2 bg-blue-600 text-white rounded-lg font-semibold text-center text-sm hover:bg-blue-700 hover:shadow-lg transition-all">Mở
+                                class="flex-1 py-2 bg-blue-600 text-white rounded-lg font-semibold text-center text-sm hover:bg-blue-700 hover:shadow-lg transition-all"
+                                data-i18n="btn_open_file">Mở
                                 file</a>
                         </div>
                     </div>
@@ -435,19 +291,19 @@
                     <div
                         class="inline-flex items-center gap-2 bg-golf-green/10 text-golf-green px-4 py-1.5 rounded-full font-bold text-sm mb-6">
                         <i data-lucide="sparkles" class="w-4 h-4"></i>
-                        <span>Trợ lý ảo PA01</span>
+                        <span data-i18n="ai_tag">Trợ lý ảo PA01</span>
                     </div>
 
                     <div class="flex items-center justify-center lg:justify-start gap-4 mb-4">
                         <img src="icon.png" alt="AI Icon"
                             class="w-12 h-12 md:w-16 md:h-16 object-contain drop-shadow-md">
                         <h2 class="text-3xl md:text-5xl font-bold text-gray-900 font-playfair leading-tight text-left">
-                            Hỏi đáp Pháp luật <br>
-                            <span class="text-golf-green">Ngay lập tức 24/7</span>
+                            <span data-i18n="ai_title_1">Hỏi đáp Pháp luật</span> <br>
+                            <span class="text-golf-green" data-i18n="ai_title_2">Ngay lập tức 24/7</span>
                         </h2>
                     </div>
 
-                    <p class="text-gray-600 mb-8 text-lg leading-relaxed">
+                    <p class="text-gray-600 mb-8 text-lg leading-relaxed" data-i18n="ai_desc">
                         Sử dụng công nghệ AI tiên tiến của Google để giải đáp mọi thắc mắc về Luật Xuất nhập cảnh,
                         quy định bay Flycam và các tình huống khẩn cấp tại sân Golf.
                     </p>
@@ -457,30 +313,30 @@
                             target="_blank"
                             class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-golf-green to-golf-light text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 hover:ring-4 ring-green-100 btn-shine">
                             <i data-lucide="message-square" class="w-6 h-6"></i>
-                            <span class="text-lg">Trò chuyện ngay</span>
+                            <span class="text-lg" data-i18n="btn_chat_now">Trò chuyện ngay</span>
                         </a>
 
                         <button onclick="document.getElementById('img-guide').click()"
                             class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border border-gray-200 text-gray-700 font-bold rounded-full hover:bg-gray-50 transition-all shadow-sm">
                             <i data-lucide="book-open" class="w-5 h-5"></i>
-                            <span>Hướng dẫn</span>
+                            <span data-i18n="btn_guide">Hướng dẫn</span>
                         </button>
                         <a id="img-guide" href="https://via.placeholder.com/1080x1920" class="hidden" data-fancybox></a>
                     </div>
 
                     <div class="mt-8 flex items-center justify-center lg:justify-start gap-4 text-sm text-gray-500">
-                        <div class="flex -space-x-2">
-                            <div
-                                class="w-8 h-8 rounded-full bg-blue-100 border-2 border-white flex items-center justify-center text-xs font-bold">
-                                VN</div>
-                            <div
-                                class="w-8 h-8 rounded-full bg-red-100 border-2 border-white flex items-center justify-center text-xs font-bold">
-                                EN</div>
-                            <div
-                                class="w-8 h-8 rounded-full bg-yellow-100 border-2 border-white flex items-center justify-center text-xs font-bold">
-                                KR</div>
+                        <div class="flex gap-2">
+                            <button id="btn-vi" onclick="switchLang('vi')"
+                                class="lang-btn w-10 h-10 rounded-full bg-red-600 border-2 border-white flex items-center justify-center text-xs font-bold text-white hover:scale-110 transition-transform shadow-md"
+                                title="Tiếng Việt">VN</button>
+                            <button id="btn-en" onclick="switchLang('en')"
+                                class="lang-btn w-10 h-10 rounded-full bg-blue-600 border-2 border-white flex items-center justify-center text-xs font-bold text-white hover:scale-110 transition-transform shadow-md"
+                                title="English">EN</button>
+                            <button id="btn-kr" onclick="switchLang('kr')"
+                                class="lang-btn w-10 h-10 rounded-full bg-yellow-400 border-2 border-white flex items-center justify-center text-xs font-bold text-gray-800 hover:scale-110 transition-transform shadow-md"
+                                title="한국어">KR</button>
                         </div>
-                        <p>Hỗ trợ đa ngôn ngữ</p>
+                        <p data-i18n="support_multi">Hỗ trợ đa ngôn ngữ</p>
                     </div>
                 </div>
 
@@ -512,7 +368,7 @@
                                 <div class="flex justify-start animate-fade-in-up">
                                     <div
                                         class="bg-white text-gray-800 border border-gray-200 px-4 py-3 rounded-2xl rounded-tl-sm shadow-sm max-w-[90%]">
-                                        <p class="text-sm leading-relaxed">
+                                        <p class="text-sm leading-relaxed" data-i18n="ai_welcome">
                                             Xin chào! Tôi có thể giúp gì cho bạn về quy định an ninh sân Golf hôm nay?
                                         </p>
                                     </div>
@@ -521,15 +377,18 @@
                                 <!-- Suggested Questions -->
                                 <div class="flex flex-wrap gap-2 animate-fade-in-up delay-100">
                                     <button onclick="fillChat('Quy định bay Flycam?')"
-                                        class="text-xs bg-white border border-golf-green text-golf-green px-3 py-1.5 rounded-full hover:bg-golf-green hover:text-white transition-colors">
+                                        class="text-xs bg-white border border-golf-green text-golf-green px-3 py-1.5 rounded-full hover:bg-golf-green hover:text-white transition-colors"
+                                        data-i18n="q_flycam">
                                         Quy định bay Flycam?
                                     </button>
                                     <button onclick="fillChat('Thủ tục khai báo tạm trú?')"
-                                        class="text-xs bg-white border border-golf-green text-golf-green px-3 py-1.5 rounded-full hover:bg-golf-green hover:text-white transition-colors">
+                                        class="text-xs bg-white border border-golf-green text-golf-green px-3 py-1.5 rounded-full hover:bg-golf-green hover:text-white transition-colors"
+                                        data-i18n="q_visa">
                                         Thủ tục khai báo tạm trú?
                                     </button>
                                     <button onclick="fillChat('Gia hạn Visa?')"
-                                        class="text-xs bg-white border border-golf-green text-golf-green px-3 py-1.5 rounded-full hover:bg-golf-green hover:text-white transition-colors">
+                                        class="text-xs bg-white border border-golf-green text-golf-green px-3 py-1.5 rounded-full hover:bg-golf-green hover:text-white transition-colors"
+                                        data-i18n="q_visa_ext">
                                         Gia hạn Visa?
                                     </button>
                                 </div>
@@ -569,7 +428,7 @@
                     <div class="p-2 bg-white/20 rounded-full">
                         <i data-lucide="shield-alert" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="font-bold text-lg">Phản ánh An ninh trật tự</h3>
+                    <h3 class="font-bold text-lg" data-i18n="report_title">Phản ánh An ninh trật tự</h3>
                 </div>
                 <button onclick="closeReportModal()" class="hover:bg-white/20 p-2 rounded-lg transition-colors">
                     <i data-lucide="x" class="w-6 h-6"></i>
@@ -580,7 +439,7 @@
             <div class="flex-1 bg-gray-50 relative">
                 <div class="absolute inset-0 flex items-center justify-center flex-col gap-3 text-gray-400">
                     <div class="w-8 h-8 border-4 border-gray-300 border-t-cand-red rounded-full animate-spin"></div>
-                    <span>Đang kết nối hệ thống...</span>
+                    <span data-i18n="loading_text">Đang kết nối hệ thống...</span>
                 </div>
                 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfD_JjE-8S6_8u_example/viewform?embedded=true"
                     width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0"
@@ -597,7 +456,8 @@
             class="absolute inset-4 md:inset-x-1/4 md:inset-y-16 bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform scale-100">
             <!-- Header -->
             <div id="infoModalHeader" class="bg-golf-green text-white p-6 flex justify-between items-center shrink-0">
-                <h3 id="infoModalTitle" class="font-bold text-xl font-playfair">Tiêu đề</h3>
+                <h3 id="infoModalTitle" class="font-bold text-xl font-playfair" data-i18n="modal_title_default">Tiêu đề
+                </h3>
                 <button onclick="closeInfoModal()" class="hover:bg-white/20 p-2 rounded-full transition-colors">
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
@@ -611,7 +471,8 @@
             <!-- Footer -->
             <div class="p-4 bg-white border-t border-gray-100 flex justify-end">
                 <button onclick="closeInfoModal()"
-                    class="px-6 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-full font-bold transition-colors">Đóng
+                    class="px-6 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-full font-bold transition-colors"
+                    data-i18n="btn_close">Đóng
                     lại</button>
             </div>
         </div>
@@ -632,219 +493,36 @@
                         onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/e/e0/Cong_an_hieu_Viet_Nam.svg'"
                         alt="CAND" class="w-full h-full object-contain">
                 </div>
-                <h4 class="font-bold text-xl">CÔNG AN TỈNH PHÚ THỌ</h4>
-                <p class="text-cand-gold font-bold uppercase tracking-widest text-sm mt-1">PHÒNG AN NINH ĐỐI NGOẠI</p>
+                <h4 class="font-bold text-xl" data-i18n="footer_dept">CÔNG AN TỈNH PHÚ THỌ</h4>
+                <p class="text-cand-gold font-bold uppercase tracking-widest text-sm mt-1" data-i18n="footer_sub">PHÒNG
+                    AN NINH ĐỐI NGOẠI</p>
             </div>
 
             <div class="w-24 h-px bg-white/20 mx-auto mb-8"></div>
 
-            <p class="text-white/70 text-sm mb-2 font-light">Mô hình "Toàn dân bảo vệ an ninh tổ quốc" tại Sân Golf</p>
-            <div class="text-white/40 text-[10px] font-mono uppercase tracking-wide">
+            <p class="text-white/70 text-sm mb-2 font-light" data-i18n="footer_desc">Mô hình "Toàn dân bảo vệ an ninh tổ
+                quốc" tại Sân Golf</p>
+            <div class="text-white/40 text-[10px] font-mono uppercase tracking-wide" data-i18n="design_by">
                 Thiết kế & Vận hành: Đ/c Vi Phương (Bí thư Chi đoàn PA01-PA08)
             </div>
         </div>
     </footer>
 
+    <!-- NotebookLM Floating Button -->
+    <!-- NotebookLM Floating Button -->
+    <a href="https://notebooklm.google.com/notebook/5f1489c7-6321-4930-97b5-1426080cccf0" target="_blank"
+        class="fixed bottom-6 right-6 z-50 w-32 h-32 hover:scale-110 transition-transform duration-300 group">
+        <img src="icon.png" alt="AI Chat"
+            class="w-full h-full object-contain drop-shadow-2xl group-hover:rotate-12 transition-transform">
+        <span
+            class="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-4 py-2 bg-white text-golf-green text-sm font-bold rounded-xl shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-golf-green/20"
+            data-i18n="btn_ai">
+            Hỏi đáp Luật 24/7
+        </span>
+    </a>
+
     <!-- Scripts -->
-    <script>
-        lucide.createIcons();
-
-        // Data Source extracted from PDFs
-        const lawData = {
-            'flycam': {
-                title: 'Quy định Bay Flycam (UAV)',
-                headerColor: 'bg-blue-700',
-                content: `
-                    <div class="space-y-4 text-gray-800">
-                        <div class="bg-blue-50 p-4 rounded-xl border-l-4 border-blue-600">
-                            <h4 class="font-bold text-blue-800 mb-1">Khu vực Cấm bay (No-fly Zone)</h4>
-                            <p class="text-sm">Nghiêm cấm bay Flycam/UAV tại các khu vực quân sự, khu vực trụ sở cơ quan công an, Tỉnh ủy, UBND tỉnh và các mục tiêu quan trọng về an ninh quốc gia (theo Quyết định 3518/QĐ-UBND).</p>
-                        </div>
-                        
-                        <div>
-                            <h4 class="font-bold text-lg mb-2">Yêu cầu bắt buộc:</h4>
-                            <ul class="list-disc pl-5 space-y-2 text-sm">
-                                <li>Phải có giấy phép bay do <strong>Cục Tác chiến - Bộ Tổng tham mưu</strong> cấp.</li>
-                                <li>Không được bay vào khu vực có biển báo cấm.</li>
-                                <li>Không được quay phim, chụp ảnh từ trên cao các khu vực cấm.</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-red-50 p-4 rounded-xl border border-red-100">
-                            <h4 class="font-bold text-cand-red mb-1 flex items-center gap-2">
-                                <i data-lucide="alert-triangle" class="w-4 h-4"></i>
-                                Chế tài Xử phạt
-                            </h4>
-                            <p class="text-sm">Hành vi bay không phép có thể bị phạt tiền từ <strong>15.000.000đ - 40.000.000đ</strong> và bị <strong>tịch thu phương tiện</strong> (Flycam).</p>
-                        </div>
-                    </div>
-                `
-            },
-            'visa': {
-                title: 'Visa & Khai báo tạm trú',
-                headerColor: 'bg-green-700',
-                content: `
-                    <div class="space-y-4 text-gray-800">
-                        <div class="bg-green-50 p-4 rounded-xl border-l-4 border-green-600">
-                            <h4 class="font-bold text-green-800 mb-1">Trách nhiệm Khai báo</h4>
-                            <p class="text-sm">Người nước ngoài nghỉ tại cơ sở lưu trú (Resort/Khách sạn sân Golf) phải xuất trình Hộ chiếu/Giấy tờ có giá trị cư trú để Lễ tân thực hiện khai báo tạm trú qua trang web của Công an tỉnh.</p>
-                        </div>
-                        
-                        <div>
-                            <h4 class="font-bold text-lg mb-2">Quy định từ Luật XNC (VBHN 30/2023):</h4>
-                            <ul class="list-disc pl-5 space-y-2 text-sm">
-                                <li>Người nước ngoài phải mang theo Hộ chiếu khi đi lại.</li>
-                                <li>Không được sử dụng chứng nhận tạm trú sai mục đích.</li>
-                                <li>Phải gia hạn thị thực (Visa) trước khi hết hạn.</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-red-50 p-4 rounded-xl border border-red-100">
-                            <h4 class="font-bold text-cand-red mb-1 flex items-center gap-2">
-                                <i data-lucide="alert-octagon" class="w-4 h-4"></i>
-                                Xử phạt (NĐ 282/2025/NĐ-CP)
-                            </h4>
-                            <ul class="text-sm space-y-1 mt-2">
-                                <li>• Không xuất trình Hộ chiếu khi kiểm tra: Phạt <strong>500K - 2 Triệu</strong>.</li>
-                                <li>• Quá hạn tạm trú dưới 16 ngày: Phạt <strong>500K - 2 Triệu</strong>.</li>
-                                <li>• Quá hạn 16-30 ngày: Phạt <strong>5 - 10 Triệu</strong>.</li>
-                                <li>• Có thể bị áp dụng hình thức <strong>TRỤC XUẤT</strong> nếu vi phạm nghiêm trọng.</li>
-                            </ul>
-                        </div>
-                    </div>
-                `
-            },
-            'law': {
-                title: 'Cảnh báo: Đánh bạc & Cá độ',
-                headerColor: 'bg-cand-red',
-                content: `
-                    <div class="space-y-4 text-gray-800">
-                        <div class="bg-red-100 p-4 rounded-xl border-l-4 border-red-600">
-                            <h4 class="font-bold text-red-800 mb-1 text-lg">TUYỆT ĐỐI CẤM ĐÁNH BẠC</h4>
-                            <p class="text-sm">Pháp luật Việt Nam nghiêm cấm mọi hành vi đánh bạc, cá độ thắng thua bằng tiền hoặc hiện vật (bao gồm cả hình thức <strong>Cá độ Golf / Skins Game</strong> giá trị lớn).</p>
-                        </div>
-                        
-                        <div>
-                            <h4 class="font-bold text-lg mb-2">Hình thức xử lý:</h4>
-                            <ul class="list-disc pl-5 space-y-2 text-sm">
-                                <li><strong>Xử lý Hình sự:</strong> Có thể bị truy cứu trách nhiệm hình sự (phạt tù) nếu số tiền đánh bạc từ 5.000.000đ trở lên.</li>
-                                <li><strong>Trục xuất:</strong> Người nước ngoài vi phạm pháp luật về tệ nạn xã hội (đánh bạc) sẽ bị áp dụng hình thức xử phạt <strong>Trục xuất</strong> khỏi Việt Nam (theo Nghị định 282/2025/NĐ-CP).</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-gray-100 p-4 rounded-xl text-sm italic">
-                            "Vui lòng giữ gìn hình ảnh môn thể thao Golf văn minh, lịch sự và tuân thủ pháp luật nước sở tại."
-                        </div>
-                    </div>
-                `
-            }
-        };
-
-        function openReportModal() {
-            document.getElementById('reportModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeReportModal() {
-            document.getElementById('reportModal').classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-
-        // New Logic for Info Detail Modal
-        function showLaw(type) {
-            const data = lawData[type];
-            if (!data) return;
-
-            // Set Content
-            document.getElementById('infoModalTitle').innerText = data.title;
-            document.getElementById('infoModalBody').innerHTML = data.content;
-
-            // Set Header Color
-            const header = document.getElementById('infoModalHeader');
-            header.className = `text-white p-6 flex justify-between items-center shrink-0 ${data.headerColor}`;
-
-            // Re-render icons inside new content
-            lucide.createIcons();
-
-            // Show Modal
-            document.getElementById('infoModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeInfoModal() {
-            document.getElementById('infoModal').classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-
-        // Language Switcher Logic (Visual only for Demo)
-        function switchLang(lang) {
-            // Remove active class from all
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-
-            // Add active class to clicked
-            document.getElementById('btn-' + lang).classList.add('active');
-            console.log('Switched to: ' + lang);
-        }
-
-        /* ========== CHAT SIMULATOR LOGIC ========== */
-        function fillChat(text) {
-            document.getElementById('fakeChatInput').value = text;
-            document.getElementById('fakeChatInput').focus();
-        }
-
-        function handleChatEnter(e) {
-            if (e.key === 'Enter') {
-                handleChatSend();
-            }
-        }
-
-        function handleChatSend() {
-            const input = document.getElementById('fakeChatInput');
-            const text = input.value.trim();
-            if (!text) return;
-
-            // 1. Add User Message
-            const chatHistory = document.getElementById('chatHistory');
-            const userMsgHTML = `
-                <div class="flex justify-end animate-fade-in-up">
-                    <div class="bg-golf-green text-white px-4 py-3 rounded-2xl rounded-tr-sm shadow-md max-w-[85%]">
-                        <p class="text-sm">${text}</p>
-                    </div>
-                </div>
-            `;
-            chatHistory.insertAdjacentHTML('beforeend', userMsgHTML);
-            input.value = '';
-            chatHistory.scrollTop = chatHistory.scrollHeight;
-
-            // 2. Simulate AI Typing/Response (Fake)
-            setTimeout(() => {
-                let reply = "Đây là bản mô phỏng giao diện. Vui lòng bấm 'Trò chuyện ngay' để chat với AI thật của Google.";
-
-                // Simple keyword matching for demo
-                const t = text.toLowerCase();
-                if (t.includes('flycam') || t.includes('bay')) {
-                    reply = "Về Flycam: Tại Phú Thọ, bạn cần xin cấp phép bay từ Cục Tác chiến. Nghiêm cấm bay tại các khu vực quân sự và Tỉnh ủy.";
-                } else if (t.includes('visa') || t.includes('hạn')) {
-                    reply = "Về Visa: Người nước ngoài cần gia hạn thị thực trước khi hết hạn. Mức phạt quá hạn dưới 16 ngày là 500k-2triệu.";
-                }
-
-                const aiMsgHTML = `
-                    <div class="flex justify-start animate-fade-in-up">
-                        <div class="bg-white text-gray-800 border border-gray-200 px-4 py-3 rounded-2xl rounded-tl-sm shadow-sm max-w-[90%]">
-                            <p class="text-sm leading-relaxed">${reply}</p>
-                            <div class="mt-2 text-xs text-gray-400 flex items-center gap-1">
-                                <i data-lucide="check-circle" class="w-3 h-3"></i> Được xác thực bởi PA01
-                            </div>
-                        </div>
-                    </div>
-                `;
-                chatHistory.insertAdjacentHTML('beforeend', aiMsgHTML);
-                chatHistory.scrollTop = chatHistory.scrollHeight;
-            }, 800);
-        }
-    </script>
+    <script src="js/app.js" defer></script>
 </body>
 
 </html>
